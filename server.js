@@ -53,11 +53,11 @@ io.sockets.on('connection', function(socket){
 
 //DB connect
 var MongoClient = mongo.MongoClient;
-MongoClient.connect('mongodb://quizzle:XivL5a0AKvfnQd5dMyMhJqkhtY1Rf5Y4OFT5gCSeKmPHFEA77Uqj81hOGdU7ogzfedFJLMBiJy6hy20FFPjmng==@quizzle.documents.azure.com:10250/?ssl=true', function(err, db) {
+MongoClient.connect('mongodb://quizzle:XivL5a0AKvfnQd5dMyMhJqkhtY1Rf5Y4OFT5gCSeKmPHFEA77Uqj81hOGdU7ogzfedFJLMBiJy6hy20FFPjmng==@quizzle.documents.azure.com:10250/quizzley?ssl=true', function(err, db) {
     if(err) {
         throw err;
     }
-    var res = db.system.namespaces.find({name: 'quizzle.quizzes'});
+    var res = db.system.namespaces.find({name: 'quizzley.quizzes'});
     if(!res) {
         db.quizzes.insert([
             {
