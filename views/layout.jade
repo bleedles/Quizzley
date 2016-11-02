@@ -16,11 +16,11 @@ html.no-js(lang='en')
     meta(name="author" content=author)
     meta(name="viewport" content='width=device-width, initial-scale=1')
     link(rel='stylesheet' href='/css/style.css')
-    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u", crossorigin="anonymous")
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous")
     //-script(src='js/libs/modernizr-2.0.6.min.js')
   body
     block header
-      header
+      //header
         nav(class="navbar navbar-inverse navbar-fixed-top")
           div(class="container-fluid")
             div(class="navbar-header")
@@ -29,19 +29,22 @@ html.no-js(lang='en')
                 span(class="icon-bar")
                 span(class="icon-bar")
                 span(class="icon-bar")
-              a(class="navbar-brand" href="/index.html") Quizzle
+              a(class="navbar-brand") Quizzle
 
             div(class="collapse navbar-collapse" id="bs-example-navbar-collapse-1")
               ul(class="nav navbar-nav")
-                li: a Manage Quizzes 
+                li
+                  a Manage Quizzes 
                   span(class="sr-only")
                 li(class="dropdown")
                   a(class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false") View Quizzes
                     span(class="caret")
                   ul(class="dropdown-menu")
                     li(role="separator" class="divider")
-                    li: a More...
-                li: a How To 
+                    li 
+                      a More...
+                li
+                  a How To 
                   span(class="sr-only")
     block content
 
