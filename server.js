@@ -85,7 +85,7 @@ server.get('/', function(req,res){
  *    GET: finds all quizzes
  *    POST: creates a new quiz
  */
-app.get("/quizzes", function(req, res) {
+server.get("/quizzes", function(req, res) {
     db.collection("quizzes").find({}).toArray(function(err, docs) {
         if (err) {
             throw err;
@@ -95,7 +95,7 @@ app.get("/quizzes", function(req, res) {
     });
 });
 
-app.post("/quizzes", function(req, res) {
+server.post("/quizzes", function(req, res) {
     var newQuiz = req.body;
     var now = new Date();
     newQuiz.createdDate = now;
@@ -120,13 +120,13 @@ app.post("/quizzes", function(req, res) {
  *    DELETE: deletes quiz by id
  */
 
-app.get("/quizzes/:id", function(req, res) {
+server.get("/quizzes/:id", function(req, res) {
 });
 
-app.put("/quizzes/:id", function(req, res) {
+server.put("/quizzes/:id", function(req, res) {
 });
 
-app.delete("/quizzes/:id", function(req, res) {
+server.delete("/quizzes/:id", function(req, res) {
 });
 
 //A Route for Creating a 500 Error (Useful to keep around)
