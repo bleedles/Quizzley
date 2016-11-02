@@ -1,12 +1,13 @@
 {
-  "name": "YOUR-PROJECT-NAME-HERE",
-  "description": "YOUR PROJECT DESCRIPTION HERE",
-  "author": "YOUR NAME <your@emailaddress.com>",
+  "name": "Quizzley",
+  "description": "Gamify your work life!",
+  "author": "Blake Needleman <needlb1@nationwide.com>",
   "version": "0.0.1",
   "dependencies": {
     "connect": "1.8.5",
     "express": "2.5.2",
     "jade": "0.20.0",
+    "mongodb": "~2.0",
     "mongoose": "2.4.8",
     "socket.io": "0.8.7"
   },

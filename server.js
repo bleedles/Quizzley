@@ -2,6 +2,7 @@
 var connect = require('connect')
     , express = require('express')
     , io = require('socket.io')
+    , mongo = require('mongodb')
     , port = (process.env.PORT || 8081);
 
 //Setup Express
@@ -48,6 +49,229 @@ io.sockets.on('connection', function(socket){
   socket.on('disconnect', function(){
     console.log('Client Disconnected.');
   });
+});
+
+//DB connect
+var MongoClient = mongo.MongoClient;
+MongoClient.connect('mongodb://quizzle:XivL5a0AKvfnQd5dMyMhJqkhtY1Rf5Y4OFT5gCSeKmPHFEA77Uqj81hOGdU7ogzfedFJLMBiJy6hy20FFPjmng==@quizzle.documents.azure.com:10250/?ssl=true', function(err, db) {
+    if(err) {
+        throw err;
+    }
+    var res = db.system.namespaces.find({name: 'quizzle.quizzes'});
+    if(!res) {
+        db.quizzes.insert([
+            {
+                "quizId": 1,
+                "quizName": "Olympic Quiz",
+                "createdDate": "",
+                "lastModifiedDate": "",
+                "questions": [
+                {
+                    "questionNumber": 1,
+                    "question": "A women's discus weighs 1 kg (2 lbs 3oz). How much does a men's discus weigh?",
+                    "questionType": "Single Response",
+                    "choices": [
+                    "1 kg (2 lbs 3 oz)",
+                    "2 kg (4 lbs 7 oz)",
+                    "3 kg (6 lbs 10 oz)",
+                    "4 kg (8 lbs 14 oz)"
+                    ],
+                    "answer": "1",
+                    "answerExplanation": "It's just a bit heavier",
+                    "points": 1
+                },
+                {
+                    "questionNumber": 2,
+                    "question": "Before it begins its trip through 20 countries, where is the Olympic flame kindled?",
+                    "questionType": "Single Response",
+                    "choices": [
+                    "Mount Everest",
+                    "Mount Olympus",
+                    "Mount Cho Oyu",
+                    "Mount k2"
+                    ],
+                    "answer": "1",
+                    "answerExplanation": "",
+                    "points": 1
+                },
+                {
+                    "questionNumber": 3,
+                    "question": "Blue, red, and green are three of the five rings of the olympic flag. What are the other two?",
+                    "questionType": "Single Response",
+                    "choices": [
+                    "Yellow and Black",
+                    "Yellow and White",
+                    "Orange and White",
+                    "Gold and White"
+                    ],
+                    "answer": "0",
+                    "answerExplanation": "",
+                    "points": 1
+                },
+                {
+                    "questionNumber": 4,
+                    "question": "Competitors of which surname have won the most Olympic Medals?",
+                    "questionType": "Single Response",
+                    "choices": [
+                    "Smith",
+                    "Singh",
+                    "Kim"
+                    ],
+                    "answer": "2",
+                    "answerExplanation": "",
+                    "points": 1
+                },
+                {
+                    "questionNumber": 5,
+                    "question": "Eddie the Eagle became famous at the 1988 Calgary Olympics. In which even did he take part?",
+                    "questionType": "Single Response",
+                    "choices": [
+                    "Flying",
+                    "Golf",
+                    "Ski Jumping",
+                    "Weight Lifting"
+                    ],
+                    "answer": "2",
+                    "answerExplanation": "",
+                    "points": 1
+                },
+                {
+                    "questionNumber": 6,
+                    "question": "What do the five rings of the Olympic flag symbolize?",
+                    "questionType": "Single Response",
+                    "choices": [
+                    "The five world languages",
+                    "The first five wonders of the world",
+                    "The five athletic elements in sports",
+                    "The five continents"
+                    ],
+                    "answer": "3",
+                    "answerExplanation": "",
+                    "points": 1
+                },
+                {
+                    "questionNumber": 7,
+                    "question": "Phiedippides ran over 26 miles in 490 BC to deliver the news of a lost battle. He ran from Marathon to which city?",
+                    "questionType": "Single Response",
+                    "choices": [
+                    "Athens",
+                    "Rome",
+                    "Carthage",
+                    "Oreos"
+                    ],
+                    "answer": "0",
+                    "answerExplanation": "",
+                    "points": 1
+                }
+                ]
+            },
+            {
+                "quizId": 2,
+                "quizName": "Second Olympic Quiz",
+                "createdDate": "",
+                "lastModifiedDate": "",
+                "questions": [
+                {
+                    "questionNumber": 1,
+                    "question": "A women's discus weighs 1 kg (2 lbs 3oz). How much does a men's discus weigh?",
+                    "questionType": "Single Response",
+                    "choices": [
+                    "1 kg (2 lbs 3 oz)",
+                    "2 kg (4 lbs 7 oz)",
+                    "3 kg (6 lbs 10 oz)",
+                    "4 kg (8 lbs 14 oz)"
+                    ],
+                    "answer": "1",
+                    "answerExplanation": "It's just a bit heavier",
+                    "points": 1
+                },
+                {
+                    "questionNumber": 2,
+                    "question": "Before it begins its trip through 20 countries, where is the Olympic flame kindled?",
+                    "questionType": "Single Response",
+                    "choices": [
+                    "Mount Everest",
+                    "Mount Olympus",
+                    "Mount Cho Oyu",
+                    "Mount k2"
+                    ],
+                    "answer": "1",
+                    "answerExplanation": "",
+                    "points": 1
+                },
+                {
+                    "questionNumber": 3,
+                    "question": "Blue, red, and green are three of the five rings of the olympic flag. What are the other two?",
+                    "questionType": "Single Response",
+                    "choices": [
+                    "Yellow and Black",
+                    "Yellow and White",
+                    "Orange and White",
+                    "Gold and White"
+                    ],
+                    "answer": "0",
+                    "answerExplanation": "",
+                    "points": 1
+                },
+                {
+                    "questionNumber": 4,
+                    "question": "Competitors of which surname have won the most Olympic Medals?",
+                    "questionType": "Single Response",
+                    "choices": [
+                    "Smith",
+                    "Singh",
+                    "Kim"
+                    ],
+                    "answer": "2",
+                    "answerExplanation": "",
+                    "points": 1
+                },
+                {
+                    "questionNumber": 5,
+                    "question": "Eddie the Eagle became famous at the 1988 Calgary Olympics. In which even did he take part?",
+                    "questionType": "Single Response",
+                    "choices": [
+                    "Flying",
+                    "Golf",
+                    "Ski Jumping",
+                    "Weight Lifting"
+                    ],
+                    "answer": "2",
+                    "answerExplanation": "",
+                    "points": 1
+                },
+                {
+                    "questionNumber": 6,
+                    "question": "What do the five rings of the Olympic flag symbolize?",
+                    "questionType": "Single Response",
+                    "choices": [
+                    "The five world languages",
+                    "The first five wonders of the world",
+                    "The five athletic elements in sports",
+                    "The five continents"
+                    ],
+                    "answer": "3",
+                    "answerExplanation": "",
+                    "points": 1
+                },
+                {
+                    "questionNumber": 7,
+                    "question": "Phiedippides ran over 26 miles in 490 BC to deliver the news of a lost battle. He ran from Marathon to which city?",
+                    "questionType": "Single Response",
+                    "choices": [
+                    "Athens",
+                    "Rome",
+                    "Carthage",
+                    "Oreos"
+                    ],
+                    "answer": "0",
+                    "answerExplanation": "",
+                    "points": 1
+                }
+                ]
+            }
+            ]);
+    }
 });
 
 
