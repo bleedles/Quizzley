@@ -1,0 +1,35 @@
+﻿<div>
+    <div class="page-header">
+        <h1>Quizzes</h1>
+    </div>
+    <table id="quizzesViewTable" class="table">
+        <thead>
+            <tr>
+                <th class="col-md-3">Quiz Name</th>
+                <th class="col-md-1"># of Questions</th>
+                <th class="col-md-1">Total Points</th>
+                <th class="col-md-3">Created Date</th>
+                <th class="col-md-3">Last Modified Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="quiz in quizzes track by $index">
+                <td>
+                    {{quiz.quizName}}
+                </td>
+                <td>
+                    {{quiz.questions.length}}
+                </td>
+                <td>
+                    {{QuizService.getPoints(quiz)}}
+                </td>
+                <td>
+                    {{quiz.createdDate | date: 'short'}}
+                </td>
+                <td>
+                    {{quiz.lastModifiedDate | date: 'short'}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

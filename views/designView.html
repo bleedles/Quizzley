@@ -1,0 +1,12 @@
+﻿<div ng-controller="DesignController">
+    
+    <ul class="nav nav-pills">
+        <li role="presentation" ng-class="designView == 'create' ? 'active' : ''" ng-click="switchDesignView('create')"><a href="#">Create</a></li>
+        <li role="presentation" ng-class="designView == 'editList' ? 'active' : ''" ng-click="switchDesignView('editList')"><a href="#">Edit List</a></li>
+        <li role="presentation" ng-class="designView == 'edit' ? 'active' : ''" ng-click="switchDesignView('edit')" ng-show="quiz.quizId"><a href="#">Edit {{quiz.quizName}}</a></li>
+    </ul>
+
+    <create-view ng-if="designView == 'create'"></create-view>
+    <edit-list-view ng-if="designView == 'editList'"></edit-list-view>
+    <edit-view ng-if="designView == 'edit'"></edit-view>
+</div>

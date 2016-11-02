@@ -1,0 +1,43 @@
+﻿<div ng-controller="QuizController">
+    <div class="container">
+        <div class="row">
+            <h2 class="navbar-text"><span>Welcome to the {{quiz.quizName}}, {{user.firstName}}</span></h2>
+            <h2 class="navbar-text" ng-if="submitted"><span> - You scored a {{user.score}}.</span></h2>
+            <h2 class="pull-right navbar-text"><span >{{dateDifference | date:'mm:ss'}}</span></h2>
+        </div>
+        <div class="row">
+            <button type="button" class="btn btn-default" ng-click="start()" ng-if="!started">Start the Quiz</button>
+        </div>
+    </div>
+    <div class="container" ng-if="started">
+        <div class="panel panel-default" ng-class="submitted ? (questionItem.correct ? 'panel-success' : 'panel-danger') : ''" ng-repeat="questionItem in quiz.questions track by $index">
+            <div class="panel-heading">
+                {{questionItem.questionNumber + ". " + questionItem.question}}
+            </div>
+            <div class="panel-body">
+                <div class="choices" ng-repeat="choice in questionItem.choices">
+                    <label>
+                        <input type="radio" ng-model="questionItem.userChoice" ng-value="$index" />
+                        {{choice}}
+                    </label>
+                </div>
+            </div>
+            <div class="answer panel-footer" ng-if="submitted && questionItem.correct">
+                You were correct!
+            </div>
+			<div class="answer panel-footer" ng-if="submitted && !questionItem.correct">
+                Incorrect! The answer was {{"The answer was " + questionItem.choices[questionItem.answer]}}.
+            </div>
+        </div>
+        <!--Footer-->
+        <nav class="navbar navbar-inverse navbar-fixed-bottom">
+            <div class="container">
+                <div id="timer" class="pull-right navbar-text">{{dateDifference | date:'mm:ss'}}</div>
+                <button id="submitQuiz" type="button" class="btn btn-default navbar-btn" ng-click="submit()" ng-if="!submitted">Submit Quiz</button>
+                <div id="results" ng-if="submitted">
+                    Your score was {{user.score}}.
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>

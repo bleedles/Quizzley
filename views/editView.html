@@ -1,0 +1,52 @@
+﻿<div>
+    <div class="page-header">
+        <h1>{{quiz.quizName}}</h1>
+        <!--<span><button type="button" class="btn btn-primary btn-lg pull-right" ng-click="saveQuiz()">Save</button></span>-->
+    </div>
+    <div class="table-responsive">
+        <table id="designTable" class="table">
+            <thead>
+            <tr>
+                <th><button type="button" class="btn btn-default btn-sm" ng-click="addQuestion()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button></th>
+                <th class="col-md-1">Question Number</th>
+                <th class="col-md-3">Question</th>
+                <th class="col-md-3">Choices (comma separated)</th>
+                <th class="col-md-1">Answer</th>
+                <th class="col-md-3">Answer Explanation</th>
+                <th class="col-md-1">Points</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="question in quiz.questions track by $index">
+                <td>
+                    <button type="button" class="btn btn-danger btn-sm" ng-click="removeQuestion($index)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                </td>
+                <td>
+                    {{question.questionNumber}}
+                </td>
+                <td>
+                    <input type="text" class="form-control" ng-model="question.question" />
+                </td>
+                <td>
+                    <input type="text" class="form-control" ng-model="question.choices" />
+                </td>
+                <td>
+                    <input type="text" class="form-control" ng-model="question.answer" />
+                </td>
+                <td>
+                    <input type="text" class="form-control" ng-model="question.answerExplanation" />
+                </td>
+                <td>
+                    <input type="number" class="form-control" ng-model="question.points" />
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--Footer-->
+    <nav class="navbar navbar-inverse navbar-fixed-bottom">
+        <div class="container-fluid">
+             <button id="saveQuiz" type="button" class="btn btn-lg btn-primary navbar-btn" ng-click="saveQuiz()">Save</button>
+         </div>
+    </nav>
+</div>
