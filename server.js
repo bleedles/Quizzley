@@ -86,6 +86,13 @@ server.get('/', function(req,res){
  *    POST: creates a new quiz
  */
 app.get("/quizzes", function(req, res) {
+    db.collection("quizzes").find({}).toArray(function(err, docs) {
+        if (err) {
+            throw err;
+        } else {
+            res.status(200).json(docs);
+        }
+    });
 });
 
 app.post("/quizzes", function(req, res) {
@@ -95,12 +102,12 @@ app.post("/quizzes", function(req, res) {
     newQuiz.lastModifiedDate = now;
 
     if (!req.body.quizName) {
-        handleError(res, "Invalid user input", "Must provide a quiz name.", 400);
+        throw new Error('"Invalid user input, Must provide a quiz name."');
     }
 
     db.collection("quizzes").insertOne(newQuiz, function(err, doc) {
         if (err) {
-            handleError(res, err.message, "Failed to create new contact.");
+            throw err;
         } else {
             res.status(201).json(doc.ops[0]);
         }
