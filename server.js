@@ -46,11 +46,7 @@ io.sockets.on('connection', function(socket){
     socket.broadcast.emit('server_message',data);
     socket.emit('server_message',data);
   });
-  socket.on('getQuizzes', function(data) {
-    data = getQuizzes();
-    socket.broadcast.emit('server_message',data);
-    socket.emit('server_message',data);
-  });
+
   socket.on('disconnect', function(){
     console.log('Client Disconnected.');
   });
