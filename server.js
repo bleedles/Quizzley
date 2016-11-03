@@ -90,7 +90,16 @@ server.get('/', function(req,res){
   });
 });
 
-
+server.get('/howTo', function(req,res){
+  res.render('howToView.jade', {
+    locals : { 
+              title : 'Quizzley'
+             ,description: 'Gamify your work life!'
+             ,author: 'Blake Needleman'
+             ,analyticssiteid: 'XXXXXXX' 
+            }
+  });
+});
 
 /*  "/contacts"
  *    GET: finds all quizzes
