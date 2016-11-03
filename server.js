@@ -107,22 +107,37 @@ server.get("/api/quizzes", function(req, res) {
 });
 
 server.post("/api/quizzes", function(req, res) {
-    var newQuiz = req.body;
     var now = new Date();
-    newQuiz.createdDate = now;
-    newQuiz.lastModifiedDate = now;
+    
+    if(req.body._id) {
+        var updateDoc = req.body;
+        updateDoc.lastModifiedDate = now;
+        var id = updateDoc._id;
+        delete updateDoc._id;
 
-    if (!req.body.quizName) {
-        throw new Error('Invalid user input, Must provide a quiz name.');
-    }
-
-    db.collection(QUIZZES_COLLECTION).insertOne(newQuiz, function(err, doc) {
-        if (err) {
-            throw err;
-        } else {
-            res.status(201).json(doc.ops[0]);
+        db.collection(QUIZZES_COLLECTION).updateOne({_id: new ObjectID(id)}, updateDoc, function(err, doc) {
+            if (err) {
+                handleError(res, err.message, "Failed to update quiz");
+            } else {
+                res.status(204).end();
+            }
+        });
+    } else {
+        var newQuiz = req.body;
+        newQuiz.createdDate = now;
+        newQuiz.lastModifiedDate = now;
+        if (!req.body.quizName) {
+            throw new Error('Invalid user input, Must provide a quiz name.');
         }
-    });
+
+        db.collection(QUIZZES_COLLECTION).insertOne(newQuiz, function(err, doc) {
+            if (err) {
+                throw err;
+            } else {
+                res.status(201).json(doc.ops[0]);
+            }
+        });
+    }
 });
 
 /*  "/quizzes/:id"
@@ -143,6 +158,7 @@ server.get("/api/quizzes/:id", function(req, res) {
 
 server.put("/api/quizzes/:id", function(req, res) {
     var updateDoc = req.body;
+    updateDoc.lastModifiedDate = new Date();
     delete updateDoc._id;
 
     db.collection(QUIZZES_COLLECTION).updateOne({_id: new ObjectID(req.params.id)}, updateDoc, function(err, doc) {
