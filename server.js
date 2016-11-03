@@ -53,20 +53,6 @@ MongoClient.connect('mongodb://quizzley:5hqbqzNv8a4bHOhkPsvdeOavgAHuKgIP2YBZAhBW
 
 server.listen( port);
 
-//Setup Socket.IO
-var io = io.listen(server);
-io.sockets.on('connection', function(socket){
-  console.log('Client Connected');
-  socket.on('message', function(data){
-    socket.broadcast.emit('server_message',data);
-    socket.emit('server_message',data);
-  });
-
-  socket.on('disconnect', function(){
-    console.log('Client Disconnected.');
-  });
-});
-
 // Generic error handler used by all endpoints.
 function handleError(res, reason, message, code) {
   console.log("ERROR: " + reason);
