@@ -5,13 +5,14 @@
 		function ($routeProvider, $locationProvider) {
 			$routeProvider
 			.when('/index', {
-				templateUrl: '/views/home.html'
+				templateUrl: '/',
+				controller: 'AppController'
 			})
 			.when('/howTo', {
-				templateUrl: '/howToView'
+				templateUrl: '/views/howToView'
 			})
 			.when('/quizzes', {
-				templateUrl: '/quizzes',
+				templateUrl: '/views/quizzes',
 				controller: 'DesignController'
 			})
 			.when('/quizzes/:quizId', {
