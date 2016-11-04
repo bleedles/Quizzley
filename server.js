@@ -76,7 +76,7 @@ server.get('/', function(req,res){
   });
 });
 
-server.get('/howTo', function(req,res){
+server.get('/views/howTo', function(req,res){
   res.render('howToView.jade', {
     locals : { 
               title : 'Quizzley'
@@ -87,7 +87,7 @@ server.get('/howTo', function(req,res){
   });
 });
 
-server.get('/quizzes', function(req,res){
+server.get('/views/quizzes', function(req,res){
   res.render('quizzes.jade', {
     locals : { 
               title : 'Quizzley'
