@@ -2,9 +2,12 @@
     angular.module('app').controller("DesignController", ['$scope', 'QuizService', DesignController]);
 
     function DesignController($scope, QuizService) {
-        $scope.designView = 'editList';
         $scope.QuizService = QuizService;
         $scope.newQuiz = {};
+
+        QuizService.getQuizzes().then(function(quizzes) {
+            $scope.quizzes = quizzes;
+        });
 
         $scope.baseQuestion = {
             quizName: "",

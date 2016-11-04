@@ -1,7 +1,7 @@
 ﻿(function() {
-    angular.module('app').service("QuizService", QuizService);
+    angular.module('app').service("QuizService", ["$http", QuizService]);
 
-    function QuizService() {
+    function QuizService($http) {
         var service = {};
 
         service.getPoints = function (quiz) {
@@ -14,6 +14,12 @@
 
         service.setQuizId = function(id) {
             service.id = id;
+        }
+
+        service.getQuizzes = function() {
+            return $http.get("/quizzes").then(function (response) {
+                return response.data;
+            });
         }
 
         return service;
