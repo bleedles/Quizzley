@@ -77,7 +77,7 @@ server.get('/', function(req,res){
 });
 
 server.get('/partials/:name', function(req,res){
-  res.render('partials/' + req.params.name, {
+  res.render('partials/' + req.params.name + ".jade", {
     locals : { 
               title : 'Quizzley'
              ,description: 'Gamify your work life!'
