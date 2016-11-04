@@ -1,0 +1,21 @@
+//-extends layout
+
+//-block content
+div(ng-controller="DesignController")
+	div.page-header
+		h1 Quizzes
+	table.table(id="quizzesViewTable")
+		thead
+			tr
+				th.col-md-3 Quiz Name
+				th.col-md-1 # of Questions
+				th.col-md-1 Total Points
+				th.col-md-3 Created Date
+				th.col-md-3 Last Modified Date
+		tbody
+			tr(ng-repeat="quiz in quizzes track by $index")
+				td {{quiz.quizName}}
+				td {{quiz.questions.length}}
+				td {{QuizService.getPoints(quiz)}}
+				td {{quiz.createdDate | date: 'short'}}
+				td {{quiz.lastModifiedDate | date: 'short'}}
