@@ -87,6 +87,17 @@ server.get('/howTo', function(req,res){
   });
 });
 
+server.get('/quizzes', function(req,res){
+  res.render('quizzes.jade', {
+    locals : { 
+              title : 'Quizzley'
+             ,description: 'Gamify your work life!'
+             ,author: 'Blake Needleman'
+             ,analyticssiteid: 'XXXXXXX' 
+            }
+  });
+});
+
 /*  "/contacts"
  *    GET: finds all quizzes
  *    POST: creates a new quiz
