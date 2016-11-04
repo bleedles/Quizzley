@@ -5,22 +5,22 @@
 		function ($routeProvider, $locationProvider) {
 			$routeProvider
 			.when('/', {
-				templateUrl: '/partials/home',
+				templateUrl: '/partial/home.jade',
 				controller: 'AppController'
 			})
 			.when('/howTo', {
-				templateUrl: '/partials/howToView'
+				templateUrl: '/partial/howToView.jade'
 			})
 			.when('/quizzes', {
-				templateUrl: '/partials/quizzes',
+				templateUrl: '/partial/quizzes.jade',
 				controller: 'DesignController'
 			})
 			.when('/quizzes/:quizId', {
-				templateUrl: '/partials/quizView.html',
+				templateUrl: '/partial/quizView.html',
 				controller: 'QuizController'
 			})
 			.when('/edit', {
-				templateUrl: '/partials/editListView.html',
+				templateUrl: '/partial/editListView.html',
 				controller: 'DesignController'
 			});
 
