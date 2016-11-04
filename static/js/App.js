@@ -1,7 +1,7 @@
 ﻿(function() {
 	var app = angular.module('app', ['ngRoute']);
 
-	angular.module('app').config(['$routeProvider', '$locationProvider',
+	/*angular.module('app').config(['$routeProvider', '$locationProvider',
 		function ($routeProvider, $locationProvider) {
 			$routeProvider
 			.when('/index', {
@@ -25,7 +25,7 @@
 			});
 
 			$locationProvider.html5Mode(false);
-	}]);
+	}]);*/
 
 	angular.module('app').controller("AppController", ["$scope", "$routeParams","GetInfoService", 'QuizService', AppController]);
 
