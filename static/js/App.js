@@ -30,9 +30,9 @@
 	angular.module('app').controller("AppController", ["$scope", "$routeParams","GetInfoService", 'QuizService', AppController]);
 
 	function AppController($scope, GetInfoService, QuizService) {
-		GetInfoService.getUser().then(function (user) {
+		/*GetInfoService.getUser().then(function (user) {
 			$scope.user = user;
-		});
+		});*/
 
 		QuizService.getQuizzes().then(function (quizzes) {
 			$scope.quizzes = quizzes;
