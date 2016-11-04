@@ -19,7 +19,7 @@ html.no-js(lang='en')
 		link(rel='stylesheet', href='/css/bootstrap.min.css')
 		link(rel='stylesheet', href='/css/bootstrap-theme.min.css')
 		//-script(src='js/libs/modernizr-2.0.6.min.js')
-	body
+	body(ng-app="app")
 		block header
 			nav.navbar.navbar-inverse.navbar-fixed-top
 				div.container-fluid
@@ -35,7 +35,7 @@ html.no-js(lang='en')
 							li.active: a( href="/") Home
 							li: a( href="/howTo" ) How To
 							li: a( href="/quizzes" ) Quizzes
-							li.dropdown
+							//-li.dropdown
 								a.dropdown-toggle( href="#", data-toggle="dropdown", role="button", aria-expanded="false" ) Dropdown 
 									span.caret
 								ul.dropdown-menu( role="menu" )
