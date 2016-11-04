@@ -76,19 +76,8 @@ server.get('/', function(req,res){
   });
 });
 
-server.get('/howTo', function(req,res){
-  res.render('howToView.jade', {
-    locals : { 
-              title : 'Quizzley'
-             ,description: 'Gamify your work life!'
-             ,author: 'Blake Needleman'
-             ,analyticssiteid: 'XXXXXXX' 
-            }
-  });
-});
-
-server.get('/quizzes', function(req,res){
-  res.render('quizzes.jade', {
+server.get('/partials/:name', function(req,res){
+  res.render('partials/' + req.params.name, {
     locals : { 
               title : 'Quizzley'
              ,description: 'Gamify your work life!'
