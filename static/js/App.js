@@ -33,7 +33,7 @@
 			$scope.user = user;
 		});
 
-		GetInfoService.getQuizzes().then(function (quizzes) {
+		QuizService.getQuizzes().then(function (quizzes) {
 			$scope.quizzes = quizzes;
 		});
 
