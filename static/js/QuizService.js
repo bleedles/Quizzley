@@ -17,7 +17,7 @@
         }
 
         service.getQuizzes = function() {
-            return $http.get("/quizzes").then(function (response) {
+            return $http.get("/api/quizzes").then(function (response) {
                 return response.data;
             });
         }
