@@ -1,31 +1,31 @@
 ﻿(function() {
 	var app = angular.module('app', ['ngRoute']);
 
-	/*angular.module('app').config(['$routeProvider', '$locationProvider',
+	angular.module('app').config(['$routeProvider', '$locationProvider',
 		function ($routeProvider, $locationProvider) {
 			$routeProvider
-			.when('/index', {
-				templateUrl: '/',
+			.when('/', {
+				templateUrl: '/partials/home',
 				controller: 'AppController'
 			})
 			.when('/howTo', {
-				templateUrl: '/views/howToView'
+				templateUrl: '/partials/howToView'
 			})
 			.when('/quizzes', {
-				templateUrl: '/views/quizzes',
+				templateUrl: '/partials/quizzes',
 				controller: 'DesignController'
 			})
 			.when('/quizzes/:quizId', {
-				templateUrl: '/views/quizView.html',
+				templateUrl: '/partials/quizView.html',
 				controller: 'QuizController'
 			})
 			.when('/edit', {
-				templateUrl: '/views/editListView.html',
+				templateUrl: '/partials/editListView.html',
 				controller: 'DesignController'
 			});
 
 			$locationProvider.html5Mode(false);
-	}]);*/
+	}]);
 
 	angular.module('app').controller("AppController", ["$scope", "$routeParams","GetInfoService", 'QuizService', AppController]);
 
