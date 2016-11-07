@@ -18,11 +18,11 @@
 				controller: 'DesignController'
 			})
 			.when('/quizzes/:quizId', {
-				templateUrl: '/partial/quizzes.html',
+				templateUrl: '/partial/quizzes.jade',
 				controller: 'QuizController'
 			})
 			.when('/quiz/:quizId', {
-				templateUrl: '/partial/quizView.html',
+				templateUrl: '/partial/quizView.jade',
 				controller: 'QuizController'
 			})
 			.when('/edit', {
