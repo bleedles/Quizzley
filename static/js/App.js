@@ -21,6 +21,10 @@
 				templateUrl: '/partial/quizzes.html',
 				controller: 'QuizController'
 			})
+			.when('/quiz/:quizId', {
+				templateUrl: '/partial/quizView.html',
+				controller: 'QuizController'
+			})
 			.when('/edit', {
 				templateUrl: '/partial/editListView.html',
 				controller: 'DesignController'

@@ -22,6 +22,12 @@
             });
         }
 
+        service.getQuiz = function(quizId) {
+            return $http.get("/api/quizzes/" + quizId).then(function (response) {
+                return response.data;
+            });
+        }
+
         return service;
     }
 })();

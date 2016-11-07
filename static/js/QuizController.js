@@ -3,13 +3,13 @@
 
     function QuizController($scope, $http, GetInfoService, $timeout, $routeParams, QuizService) {
 
-        $scope.quizId = QuizService.id;
+        $scope.quizId = $routeParams.quizId;
 
         GetInfoService.getUser().then(function (user) {
             $scope.user = user;
         });
 
-        GetInfoService.getQuiz($scope.quizId).then(function (quiz) {
+        QuizService.getQuiz($scope.quizId).then(function (quiz) {
             $scope.quiz = quiz;
         });
 
