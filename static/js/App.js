@@ -6,8 +6,7 @@
 			$routeProvider
 			.when('/', {
 				templateUrl: '/partial/home.jade',
-				resolve: { currentPage: function() { return "Home"; }},
-				controller: 'AppController'
+				resolve: { currentPage: function() { return "Home"; }}
 			})
 			.when('/howTo', {
 				templateUrl: '/partial/howToView.jade',
@@ -37,7 +36,11 @@
 			$scope.user = user;
 		});*/
 
-		$scope.currentPage = $scope.$resolve.currentPage;
+		$scope.currentPage = "Home";
+
+		$scope.changeCurrentPage = function(page) {
+			$scope.currentPage = page;
+		}
 
 		QuizService.getQuizzes().then(function (quizzes) {
 			$scope.quizzes = quizzes;
