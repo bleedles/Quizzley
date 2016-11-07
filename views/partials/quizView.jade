@@ -22,7 +22,7 @@ div(ng-controller="QuizController")
 		
 		nav.navbar.navbar-inverse.navbar-fixed-bottom
 			div.container
-				div#timer.pull-right.navbar-text {{dateDifference | date:'mm:ss'}}
-				button#submitQuiz.btn.btn-default.navbar-btn(type="button", ng-click="submit()", ng-if="!submitted") Submit Quiz/button
-				div#results(ng-if="submitted")
+				div.pull-right.navbar-text(id="timer") {{dateDifference | date:'mm:ss'}}
+				button.btn.btn-default.navbar-btn(id="submitQuiz", type="button", ng-click="submit()", ng-if="!submitted") Submit Quiz/button
+				div(id="results", ng-if="submitted")
 					| Your score was {{user.score}}.
