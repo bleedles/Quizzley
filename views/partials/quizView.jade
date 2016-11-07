@@ -7,10 +7,10 @@ div(ng-controller="QuizController")
 		div.row
 			button.btn.btn-default(type="button", ng-click="start()", ng-if="!started") Start the Quiz
 	div.container(ng-if="started")
-		div.panel.panel-default(ng-class="submitted ? (questionItem.correct ? 'panel-success' : 'panel-danger') : ''" ng-repeat="questionItem in quiz.questions track by $index")
+		div.panel.panel-default(ng-class="submitted ? (questionItem.correct ? 'panel-success' : 'panel-danger') : ''", ng-repeat="questionItem in quiz.questions track by $index")
 			div.panel-heading
 				| {{questionItem.questionNumber + ". " + questionItem.question}}
-			div.panel-body"
+			div.panel-body
 				div.choices(ng-repeat="choice in questionItem.choices")
 					label
 						input(type="radio", ng-model="questionItem.userChoice", ng-value="$index")
