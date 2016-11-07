@@ -6,8 +6,8 @@
 			$routeProvider
 			.when('/', {
 				templateUrl: '/partial/home.jade',
-				controller: 'AppController',
-				resolve: { currentPage: function() { return "Home"; }}
+				resolve: { currentPage: function() { return "Home"; }},
+				controller: 'AppController'
 			})
 			.when('/howTo', {
 				templateUrl: '/partial/howToView.jade',
@@ -15,8 +15,8 @@
 			})
 			.when('/quizzes', {
 				templateUrl: '/partial/quizzes.jade',
-				controller: 'DesignController',
-				resolve: { currentPage: function() { return "Quizzes"; }}
+				resolve: { currentPage: function() { return "Quizzes"; }},
+				controller: 'DesignController'
 			})
 			.when('/quizzes/:quizId', {
 				templateUrl: '/partial/quizzes.html',
