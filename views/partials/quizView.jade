@@ -20,9 +20,9 @@ div(ng-controller="QuizController")
 			div.answer.panel-footer(ng-if="submitted && !questionItem.correct")
 				| Incorrect! The answer was {{"The answer was " + questionItem.choices[questionItem.answer]}}.
 		
-		nav.navbar.navbar-inverse.navbar-fixed-bottom
-			div.container
-				div.pull-right.navbar-text(id="timer") {{dateDifference | date:'mm:ss'}}
-				button.btn.btn-default.navbar-btn(id="submitQuiz", type="button", ng-click="submit()", ng-if="!submitted") Submit Quiz/button
-				div(id="results", ng-if="submitted")
-					| Your score was {{user.score}}.
+	nav.navbar.navbar-inverse.navbar-fixed-bottom
+		div.container
+			div.pull-right.navbar-text(id="timer") {{dateDifference | date:'mm:ss'}}
+			button.btn.btn-default.navbar-btn(id="submitQuiz", type="button", ng-click="submit()", ng-if="!submitted") Submit Quiz/button
+			div(id="results", ng-if="submitted")
+				| Your score was {{user.score}}.
