@@ -34,9 +34,9 @@ html.no-js(lang='en')
 							a.navbar-brand(ng-click="changeCurrentPage('Home')", href="#/") Quizzley
 						div.collapse.navbar-collapse(id="bs-example-navbar-collapse-1")
 							ul.nav.navbar-nav
-								li: a(ng-class="currentPage == 'Home' ? 'active' : ''", ng-click="changeCurrentPage('Home')", href="#/") Home
-								li: a(ng-class="currentPage == 'How To' ? 'active' : ''", ng-click="changeCurrentPage('How To')", href="#howTo" ) How To
-								li: a(ng-class="currentPage == 'Quizzes' ? 'active' : ''", ng-click="changeCurrentPage('Quizzes')", href="#quizzes" ) Quizzes
+								li(ng-class="currentPage == 'Home' ? 'active' : ''"): a(ng-click="changeCurrentPage('Home')", href="#/") Home
+								li(ng-class="currentPage == 'How To' ? 'active' : ''"): a(ng-click="changeCurrentPage('How To')", href="#howTo" ) How To
+								li(ng-class="currentPage == 'Quizzes' ? 'active' : ''"): a(ng-click="changeCurrentPage('Quizzes')", href="#quizzes" ) Quizzes
 								//-li.dropdown
 									a.dropdown-toggle( href="#", data-toggle="dropdown", role="button", aria-expanded="false" ) Dropdown 
 										span.caret
