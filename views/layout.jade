@@ -34,9 +34,9 @@ html.no-js(lang='en')
 							a.navbar-brand(href="#/") Quizzley
 						div.collapse.navbar-collapse(id="bs-example-navbar-collapse-1")
 							ul.nav.navbar-nav
-								li.active: a( href="#/") Home
-								li: a( href="#howTo" ) How To
-								li: a( href="#quizzes" ) Quizzes
+								li: a(ng-class="currentPage == 'Home' ? 'active' : ''", href="#/") Home
+								li: a(ng-class="currentPage == 'Home' ? 'active' : ''", href="#howTo" ) How To
+								li: a(ng-class="currentPage == 'Home' ? 'active' : ''", href="#quizzes" ) Quizzes
 								//-li.dropdown
 									a.dropdown-toggle( href="#", data-toggle="dropdown", role="button", aria-expanded="false" ) Dropdown 
 										span.caret
