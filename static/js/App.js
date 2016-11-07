@@ -6,17 +6,20 @@
 			$routeProvider
 			.when('/', {
 				templateUrl: '/partial/home.jade',
-				controller: 'AppController'
+				controller: 'AppController',
+				resolve: { currentPage: function() { return "Home"; }}
 			})
 			.when('/howTo', {
-				templateUrl: '/partial/howToView.jade'
+				templateUrl: '/partial/howToView.jade',
+				resolve: { currentPage: function() { return "How To"; }}
 			})
 			.when('/quizzes', {
 				templateUrl: '/partial/quizzes.jade',
-				controller: 'DesignController'
+				controller: 'DesignController',
+				resolve: { currentPage: function() { return "Quizzes"; }}
 			})
 			.when('/quizzes/:quizId', {
-				templateUrl: '/partial/quizView.html',
+				templateUrl: '/partial/quizzes.html',
 				controller: 'QuizController'
 			})
 			.when('/edit', {
@@ -33,6 +36,8 @@
 		/*GetInfoService.getUser().then(function (user) {
 			$scope.user = user;
 		});*/
+
+		$scope.currentPage = $scope.$resolve.currentPage;
 
 		QuizService.getQuizzes().then(function (quizzes) {
 			$scope.quizzes = quizzes;
