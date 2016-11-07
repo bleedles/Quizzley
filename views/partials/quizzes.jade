@@ -14,7 +14,8 @@ div(ng-controller="DesignController")
 				th.col-md-3 Last Modified Date
 		tbody
 			tr(ng-repeat="quiz in quizzes track by $index")
-				td:a(ng-href="#quiz/{{quiz._id}}") {{quiz.quizName}}
+				td
+					a(ng-href="#quiz/{{quiz._id}}") {{quiz.quizName}}
 				td {{quiz.questions.length}}
 				td {{QuizService.getPoints(quiz)}}
 				td {{quiz.createdDate | date: 'short'}}
