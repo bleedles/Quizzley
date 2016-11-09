@@ -6,7 +6,7 @@ div(ng-controller="QuizController")
 			h2.pull-right.navbar-text: span {{dateDifference | date:'mm:ss'}}
 		div.row
 			button.btn.btn-default(type="button", ng-click="start()", ng-if="!started") Start the Quiz
-	div.container(ng-if="started")
+	section.container(ng-if="started")
 		div.panel.panel-default(ng-class="submitted ? (questionItem.correct ? 'panel-success' : 'panel-danger') : ''", ng-repeat="questionItem in quiz.questions track by $index")
 			div.panel-heading
 				| {{questionItem.questionNumber + ". " + questionItem.question}}
@@ -19,7 +19,7 @@ div(ng-controller="QuizController")
 				| You were correct!
 			div.answer.panel-footer(ng-if="submitted && !questionItem.correct")
 				| Incorrect! The answer was {{"The answer was " + questionItem.choices[questionItem.answer]}}.
-	div.section
+	section.container
 		div.pull-right.navbar-text(id="timer") {{dateDifference | date:'mm:ss'}}
 			button.btn.btn-default.navbar-btn(id="submitQuiz", type="button", ng-click="submit()", ng-if="!submitted") Submit Quiz/button
 			div(id="results", ng-if="submitted")
