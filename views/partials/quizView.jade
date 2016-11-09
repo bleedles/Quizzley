@@ -6,27 +6,29 @@ div(ng-controller="QuizController")
 			h2.pull-right.navbar-text: span {{dateDifference | date:'mm:ss'}}
 		div.row
 			button.btn.btn-default(type="button", ng-click="start()", ng-if="!started") Start the Quiz
-	section.container(ng-if="started")
-		div.panel.panel-default(ng-class="submitted ? (questionItem.correct ? 'panel-success' : 'panel-danger') : ''", ng-repeat="questionItem in quiz.questions track by $index")
-			div.panel-heading
-				| {{questionItem.questionNumber + ". " + questionItem.question}}
-			div.panel-body
-				div.choices(ng-repeat="choice in questionItem.choices")
-					label
-						input(type="radio", ng-model="questionItem.userChoice", ng-value="$index")
-						| {{choice}}
-			div.answer.panel-footer(ng-if="submitted && questionItem.correct")
-				| You were correct!
-			div.answer.panel-footer(ng-if="submitted && !questionItem.correct")
-				| Incorrect! The answer was {{"The answer was " + questionItem.choices[questionItem.answer]}}.
-	section.container
+		div.row(ng-if="started")
+			div.container
+				div.panel.panel-default(ng-class="submitted ? (questionItem.correct ? 'panel-success' : 'panel-danger') : ''", ng-repeat="questionItem in quiz.questions track by $index")
+					div.panel-heading
+						| {{questionItem.questionNumber + ". " + questionItem.question}}
+					div.panel-body
+						div.choices(ng-repeat="choice in questionItem.choices")
+							label
+								input(type="radio", ng-model="questionItem.userChoice", ng-value="$index")
+								| {{choice}}
+					div.answer.panel-footer(ng-if="submitted && questionItem.correct")
+						| You were correct!
+					div.answer.panel-footer(ng-if="submitted && !questionItem.correct")
+						| Incorrect! The answer was {{"The answer was " + questionItem.choices[questionItem.answer]}}.
+			div.container
+				button.btn.btn-default.navbar-btn(id="submitQuiz", type="button", ng-click="submit()", ng-if="!submitted") Submit Quiz/button
+				div(id="results", ng-if="submitted")
+					| Your score was {{user.score}}.
+				div.pull-right.navbar-text(id="timer") {{dateDifference | date:'mm:ss'}}
+						
+nav.navbar.navbar-inverse.navbar-fixed-bottom
+	div.container
 		div.pull-right.navbar-text(id="timer") {{dateDifference | date:'mm:ss'}}
-			button.btn.btn-default.navbar-btn(id="submitQuiz", type="button", ng-click="submit()", ng-if="!submitted") Submit Quiz/button
-			div(id="results", ng-if="submitted")
-				| Your score was {{user.score}}.	
-	//-nav.navbar.navbar-inverse.navbar-fixed-bottom
-		div.container
-			div.pull-right.navbar-text(id="timer") {{dateDifference | date:'mm:ss'}}
-			button.btn.btn-default.navbar-btn(id="submitQuiz", type="button", ng-click="submit()", ng-if="!submitted") Submit Quiz/button
-			div(id="results", ng-if="submitted")
-				| Your score was {{user.score}}.
+		button.btn.btn-default.navbar-btn(id="submitQuiz", type="button", ng-click="submit()", ng-if="!submitted") Submit Quiz/button
+		div(id="results", ng-if="submitted")
+			| Your score was {{user.score}}.
