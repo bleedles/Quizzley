@@ -8,7 +8,7 @@
 
         if($scope.quizId) {
             QuizService.getQuiz($scope.quizId).then(function (quiz) {
-                $scope.newQuiz = quiz;
+                $scope.quiz = quiz;
             });
         }
         QuizService.getQuizzes().then(function(quizzes) {
