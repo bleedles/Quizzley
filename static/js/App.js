@@ -25,8 +25,8 @@
 				templateUrl: '/partial/quizView.jade',
 				controller: 'QuizController'
 			})
-			.when('/edit', {
-				templateUrl: '/partial/editListView.html',
+			.when('/edit/:quizId', {
+				templateUrl: '/partial/editView.jade',
 				controller: 'DesignController'
 			});
 

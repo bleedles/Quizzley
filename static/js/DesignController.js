@@ -1,10 +1,16 @@
 ﻿(function() {
-    angular.module('app').controller("DesignController", ['$scope', 'QuizService', DesignController]);
+    angular.module('app').controller("DesignController", ['$scope', 'QuizService', '$routeParams', DesignController]);
 
-    function DesignController($scope, QuizService) {
+    function DesignController($scope, QuizService, $routeParams) {
         $scope.QuizService = QuizService;
         $scope.newQuiz = {};
+        $scope.quizId = $routeParams.quizId;
 
+        if($scope.quizId) {
+            QuizService.getQuiz($scope.quizId).then(function (quiz) {
+                $scope.newQuiz = quiz;
+            });
+        }
         QuizService.getQuizzes().then(function(quizzes) {
             $scope.quizzes = quizzes;
         });
