@@ -28,6 +28,12 @@
             });
         }
 
+        service.updateQuiz = function(quiz) {
+            return $http.put("/api/quizzes/" + quizId, quiz).then(function (response) {
+                return response.data;
+            });
+        }
+
         return service;
     }
 })();

@@ -72,7 +72,9 @@
         }
 
         $scope.saveQuiz = function () {
-            //Save quiz changes to DB
+            QuizService.saveQuiz($scope.quiz).then(function(response) {
+                console.log(response);
+            });
         }
 
         $scope.deletQuiz = function () {
