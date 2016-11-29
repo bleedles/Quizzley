@@ -1,0 +1,39 @@
+div(ng-controller="DesignController")
+	div.page-header
+		input.form-control.input-lg(type="text" ng-model="quiz.quizName")   
+	div.table-responsive
+		table.table(id="designTable")
+			thead
+				tr
+					th
+						button.btn.btn-default.btn-sm(type="button" ng-click="addQuestion()")
+							span.glyphicon.glyphicon-plus(aria-hidden="true")
+					th.col-md-1 Question Number
+					th.col-md-3 Question
+					th.col-md-3 Choices (comma separated)
+					th.col-md-1 Answer
+					th.col-md-3 Answer Explanation
+					th.col-md-1 Points
+			tbody
+				tr(ng-repeat="question in quiz.questions track by $index")
+					td
+						button.btn.btn-danger.btn-sm(type="button" ng-click="removeQuestion($index)")
+							span.glyphicon.glyphicon-remove(aria-hidden="true")
+					td
+						{{question.questionNumber}}
+					td
+						input.form-control(type="text" ng-model="question.question")                    
+					td
+						input.form-control(type="text" ng-model="question.choices")
+					td
+						input.form-control(type="text" ng-model="question.answer")
+					td
+						input.form-control(type="text" ng-model="question.answerExplanation")
+					td
+						input.form-control(type="number" ng-model="question.points")
+					
+	
+	nav.navbar.navbar-inverse.navbar-fixed-bottom
+		div.container-fluid
+			 button.btn.btn-lg.btn-primary.navbar-btn(id="saveQuiz" type="button" ng-click="saveQuiz()") Save
+		
