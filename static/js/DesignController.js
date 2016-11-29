@@ -72,7 +72,7 @@
         }
 
         $scope.saveQuiz = function () {
-            QuizService.saveQuiz($scope.quiz).then(function(response) {
+            QuizService.updateQuiz($scope.quiz).then(function(response) {
                 console.log(response);
             });
         }

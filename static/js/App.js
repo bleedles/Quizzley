@@ -19,6 +19,7 @@
 			})
 			.when('/quizzes/:quizId', {
 				templateUrl: '/partial/quizzes.jade',
+				resolve: { currentPage: function() { return "Quizzes"; }},
 				controller: 'QuizController'
 			})
 			.when('/quiz/:quizId', {
@@ -27,6 +28,7 @@
 			})
 			.when('/edit/:quizId', {
 				templateUrl: '/partial/editView.jade',
+				resolve: { currentPage: function() { return "Quizzes"; }},
 				controller: 'DesignController'
 			});
 
