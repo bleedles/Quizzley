@@ -6,11 +6,11 @@
         $scope.newQuiz = {};
         $scope.quizId = $routeParams.quizId;
 
-        /*if($scope.quizId) {
+        if($scope.quizId) {
             QuizService.getQuiz($scope.quizId).then(function (quiz) {
                 $scope.newQuiz = quiz;
             });
-        }*/
+        }
         QuizService.getQuizzes().then(function(quizzes) {
             $scope.quizzes = quizzes;
         });
