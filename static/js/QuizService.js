@@ -29,7 +29,7 @@
         }
 
         service.updateQuiz = function(quiz) {
-            return $http.put("/api/quizzes/" + quizId, quiz).then(function (response) {
+            return $http.put("/api/quizzes/" + quiz.quizId, quiz).then(function (response) {
                 return response.data;
             });
         }
