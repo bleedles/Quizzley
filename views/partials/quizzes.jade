@@ -16,7 +16,7 @@ div(ng-controller="DesignController")
 		tbody
 			tr(ng-repeat="quiz in quizzes track by $index")
 				td
-					button.btn.btn-default(type="button" ng-click="#edit/{{quiz._id}}")
+					button.btn.btn-default(type="button", ng-click="#edit/{{quiz._id}}")
 						span.glyphicon.glyphicon-pencil(aria-hidden="true")
 					button.btn.btn-danger(type="button")
 						span.glyphicon.glyphicon-remove(aria-hidden="true")
