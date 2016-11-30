@@ -34,6 +34,12 @@
             });
         }
 
+        service.insertQuiz = function(quiz) {
+            return $http.post("/api/quizzes", quiz).then(function(response) {
+                return response.data;
+            });
+        }
+
         return service;
     }
 })();
