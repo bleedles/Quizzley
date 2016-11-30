@@ -7,7 +7,7 @@ div(ng-controller="DesignController")
 	table.table(id="quizzesViewTable")
 		thead
 			tr
-				th Edit/Delete
+				th.col-md-1 Edit/Delete
 				th.col-md-3 Quiz Name
 				th.col-md-1 # of Questions
 				th.col-md-1 Total Points
@@ -16,9 +16,9 @@ div(ng-controller="DesignController")
 		tbody
 			tr(ng-repeat="quiz in quizzes track by $index")
 				td
-					a.btn.btn-default(role="button", ng-href="#edit/{{quiz._id}}")
+					a.btn.btn-default.btn-sm(role="button", ng-href="#edit/{{quiz._id}}")
 						span.glyphicon.glyphicon-pencil(aria-hidden="true")
-					button.btn.btn-danger(type="button")
+					button.btn.btn-danger.btn-sm(type="button")
 						span.glyphicon.glyphicon-remove(aria-hidden="true")
 				td
 					a(ng-href="#quiz/{{quiz._id}}") {{quiz.quizName}}
