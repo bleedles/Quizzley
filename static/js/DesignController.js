@@ -1,7 +1,7 @@
 (function() {
-    angular.module('app').controller("DesignController", ['$scope', 'QuizService', '$routeParams', '$location', DesignController]);
+    angular.module('app').controller("DesignController", ['$scope', 'QuizService', '$routeParams', '$route', DesignController]);
 
-    function DesignController($scope, QuizService, $routeParams, $location) {
+    function DesignController($scope, QuizService, $routeParams, $route) {
         $scope.QuizService = QuizService;
         $scope.newQuiz = {};
         $scope.quizId = $routeParams.quizId;
