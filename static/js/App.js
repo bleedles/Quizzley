@@ -35,9 +35,9 @@
 			$locationProvider.html5Mode(false);
 	}]);
 
-	angular.module('app').controller("AppController", ["$scope", "$routeParams","GetInfoService", 'QuizService', AppController]);
+	angular.module('app').controller("AppController", ["$scope", "$routeParams", 'QuizService', AppController]);
 
-	function AppController($scope, GetInfoService, QuizService) {
+	function AppController($scope, $routeParams, QuizService) {
 		/*GetInfoService.getUser().then(function (user) {
 			$scope.user = user;
 		});*/
