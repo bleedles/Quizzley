@@ -24,7 +24,7 @@ div(ng-controller="DesignController")
 				td
 					a.btn.btn-default.btn-sm(role="button", ng-href="#edit/{{quiz._id}}")
 						span.glyphicon.glyphicon-pencil(aria-hidden="true")
-					button.btn.btn-danger.btn-sm(type="button")
+					button.btn.btn-danger.btn-sm(type="button", ng-click="deleteQuiz(quiz._id)")
 						span.glyphicon.glyphicon-remove(aria-hidden="true")
 				td
 					a(ng-href="#quiz/{{quiz._id}}") {{quiz.quizName}}
