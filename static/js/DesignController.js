@@ -88,7 +88,7 @@
             });
         };
 
-        $scope.deletQuiz = function (quizId) {
+        $scope.deleteQuiz = function (quizId) {
             QuizService.deleteQuiz(quizId).then(function(response) {
                 $location.path("/quizzes");
             });
