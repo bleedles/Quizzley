@@ -1,7 +1,7 @@
-﻿(function() {
-    angular.module('app').controller("DesignController", ['$scope', 'QuizService', '$routeParams', DesignController]);
+(function() {
+    angular.module('app').controller("DesignController", ['$scope', 'QuizService', '$routeParams', '$location', DesignController]);
 
-    function DesignController($scope, QuizService, $routeParams) {
+    function DesignController($scope, QuizService, $routeParams, $location) {
         $scope.QuizService = QuizService;
         $scope.newQuiz = {};
         $scope.quizId = $routeParams.quizId;
@@ -74,6 +74,7 @@
         $scope.saveQuiz = function () {
             QuizService.updateQuiz($scope.quiz).then(function(response) {
                 console.log(response);
+                $route.path("/quizzes");
             });
         }
 
