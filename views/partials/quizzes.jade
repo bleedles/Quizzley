@@ -4,6 +4,13 @@
 div(ng-controller="DesignController")
 	div.page-header
 		h1 Quizzes
+	button.btn.btn-primary(type="button", ng-click="showNewQuiz = true") Create New Quiz
+	div
+	div.input-group
+		span.input-group-btn
+			button.btn.btn-default(type="button", ng-click="createQuiz(newQuizName)")
+				span.glyphicon.glyphicon-check(aria-hidden="true")
+		input.form-control(type="text", ng-model="newQuizName") 
 	table.table(id="quizzesViewTable")
 		thead
 			tr
