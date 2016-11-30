@@ -4,6 +4,7 @@
     function DesignController($scope, QuizService, $routeParams, $route) {
         $scope.QuizService = QuizService;
         $scope.newQuiz = {};
+        $scope.showNewQuiz = false;
         $scope.quizId = $routeParams.quizId;
 
         if($scope.quizId) {
