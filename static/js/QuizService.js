@@ -40,6 +40,12 @@
             });
         }
 
+        service.deleteQuiz = function(quizId) {
+            return $http.delete("/api/quizzes/" + quizId).then(function(response) {
+                return response.data;
+            });
+        }
+
         return service;
     }
 })();

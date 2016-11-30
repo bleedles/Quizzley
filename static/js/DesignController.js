@@ -88,8 +88,10 @@
             });
         };
 
-        $scope.deletQuiz = function () {
-            //Delete quiz from DB
+        $scope.deletQuiz = function (quizId) {
+            QuizService.deleteQuiz(quizId).then(function(response) {
+                $location.path("/quizzes");
+            });
         };
     }
 })();
