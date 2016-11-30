@@ -1,7 +1,7 @@
 ﻿(function() {
-    angular.module('app').controller("DesignController", ['$scope', 'QuizService', '$routeParams', '$location', DesignController]);
+    angular.module('app').controller("DesignController", ['$scope', 'QuizService', '$routeParams', '$location', '$route', DesignController]);
 
-    function DesignController($scope, QuizService, $routeParams, $location) {
+    function DesignController($scope, QuizService, $routeParams, $location, $route) {
         $scope.QuizService = QuizService;
         $scope.newQuiz = {};
         $scope.showNewQuiz = false;
@@ -90,7 +90,7 @@
 
         $scope.deleteQuiz = function (quizId) {
             QuizService.deleteQuiz(quizId).then(function(response) {
-                $location.path("/quizzes");
+                $route.reload();
             });
         };
     }
